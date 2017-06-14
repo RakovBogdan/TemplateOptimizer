@@ -28,9 +28,10 @@ def optimize_data(template, data):
     dict_keys = re.split('\W+', pieces_list[1])[:-1]
 
     # I make a new dict with nested dicts of keys
+    # But the last key is not a dict itself, so i exclude it
     new_dict = {}
     tmp_dict_nest = new_dict
-    for key in dict_keys:
+    for key in dict_keys[:-1]:
         if key not in tmp_dict_nest:
             tmp_dict_nest[key] = {}
         tmp_dict_nest = tmp_dict_nest[key]
